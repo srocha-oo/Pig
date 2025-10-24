@@ -25,16 +25,40 @@ struct ContentView: View {
                     .rotation3DEffect(.degrees(rotation), axis: (x: 1, y: 1, z: 0))
                     .padding(50)
                 CustomText(text: "Turn Score: \(turnScore) ")
+                HStack {
+                    Button("Roll") {
+                        
+                    }
+                    .buttonStyle(CustomButtonStyle())
+                    Button("Hold") {
+                        
+                    }
+                    .buttonStyle(CustomButtonStyle()) 
+                    
+                }
                 CustomText(text: "Game Score: \(gameScore) ")
-                Spacer()
+                
             }
         }
+        Spacer()
     }
 }
 struct CustomText: View {
     let text: String
     var body: some View {
         Text(text).font(Font.custom("Marker Felt", size: 36))
+    }
+}
+struct CustomButtonStyle: ButtonStyle {
+    func makeBody(configuration: Configuration) -> some View {
+        configuration.label
+            .frame(width: 150)
+            .font(Font.custom("Marker Felt", size: 24))
+            .padding()
+            .background(.red)
+            .opacity(configuration.isPressed ? 0.6 : 1.0)
+            .foregroundColor(.white)
+            .clipShape(RoundedRectangle(cornerRadius: 10))
     }
 }
 #Preview {
