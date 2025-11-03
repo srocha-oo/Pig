@@ -52,6 +52,13 @@ struct ContentView: View {
                     NavigationLink("How to Play", destination: InstructionsView())
                         .font(Font.custom("Marker Felt", size: 24))
                         .padding()
+                 
+                    Button("Reset") {
+                        endTurn()
+                        gameScore = 0
+                    }
+                    .font(Font.custom("Marker Felt", size: 24))
+                    
                 }
             }
         }
@@ -64,7 +71,7 @@ struct ContentView: View {
                         }
                     }))
         })
-        Spacer()
+       // Spacer()
     }
     func endTurn() {
         turnScore = 0
